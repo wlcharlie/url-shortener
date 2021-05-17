@@ -5,11 +5,11 @@ const List = require('./models/list')
 const createProcess = require('./createProcess')
 
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
-
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/todo-list'
 mongoose.connect
-  (`mongodb://localhost/url-shortener`, {
+  (MONGODB_URI, {
     useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false
   })
 
