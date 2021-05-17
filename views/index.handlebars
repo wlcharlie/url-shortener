@@ -1,0 +1,33 @@
+<div class="container d-flex align-items-center" style="height: 1000px; ">
+
+  <div class="my-2 title text-center">
+    <img src="/image/link.svg" class="w-25">
+  </div>
+  {{!-- required驗證有無輸入 --}}
+  {{#unless data}}
+  <form action="/" method="POST" class="mt-4 w-50 d-flex mx-auto">
+    <div class="input-group mb-3">
+      <input type="url" class="form-control" name="url" id="url" placeholder="請貼上網址" required>
+      <div class="input-group-append">
+        <button class="btn btn-secondary" type="submit" id="button-addon2">SHORT!</button>
+      </div>
+    </div>
+  </form>
+  {{/unless}}
+
+  {{#if data}}
+  <div class="mt-4 w-50 d-flex mx-auto">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-transparent border-0 text-dark font-weight-bold">請用短網址：</span>
+      </div>
+      <input class="form-control rounded-left bg-white" id="shorten-url" value="{{ theResult }}" readonly>
+      <div class="input-group-append">
+        <button class="btn btn-primary" id="button-addon2 btn-copy">COPY!</button>
+      </div>
+    </div>
+  </div>
+
+  {{/if}}
+
+</div>
