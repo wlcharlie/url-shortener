@@ -5,13 +5,11 @@ function createProcess(req, res) {
   let original = req.body.url
   let shortenUrl = toShort()
 
-  List.findOne({ shortenUrl })
+  List.find({ shortenUrl })
     .then(find => {
 
-      if (find) {
-        while (find.shortenUrl === shortenUrl) {
-          shortenUrl = toShort()
-        }
+      while (find.some(data => data.shortenUrl === shortenUrl)) {
+        shortenUrl = toShort()
       }
 
       let theResult = `http://${req.headers.host}${req.path}${shortenUrl}`

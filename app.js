@@ -40,7 +40,13 @@ app.post('/', (req, res) => {
 app.get('/:short', (req, res) => {
   List.findOne({ shortenUrl: req.params.short })
     .lean()
-    .then(obj => res.redirect(obj.original))
+    .then(obj => {
+      if (obj) {
+        res.redirect(obj.original)
+      } else {
+        res.render('nofound')
+      }
+    })
     .catch(err => console.error(err))
 })
 

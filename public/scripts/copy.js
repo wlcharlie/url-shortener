@@ -1,4 +1,4 @@
-const btn = document.querySelector('#btn-copy')
+const btn = document.querySelector('.btn-copy')
 const shortenUrl = document.querySelector('#shorten-url')
 btn.addEventListener('click', function () {
   shortenUrl.select()
