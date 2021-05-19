@@ -5,7 +5,7 @@ function createProcess(req, res) {
   let original = req.body.url
   let shortenUrl = toShort()
 
-  List.find({ shortenUrl })
+  List.find({})
     .then(find => {
 
       while (find.some(data => data.shortenUrl === shortenUrl)) {
